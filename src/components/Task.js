@@ -1,8 +1,8 @@
-function Task({ index, task }) {
+function Task({ text, category }) {
   return (
-    <div id={index} className="task">
-      <div className="label">{task.category}</div>
-      <div className="text">{task.text}</div>
+    <div className="task">
+      <div className="label">{category}</div>
+      <div className="text">{text}</div>
       <button className="delete">X</button>
     </div>
   );

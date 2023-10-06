@@ -1,4 +1,17 @@
 function NewTaskForm({ onTaskFormSubmit, categories, formData }) {
+  
+  const onFormChange = () => {
+
+  }
+  
+  const options = categories.map(category => {
+    if (category !== "All") {
+    return (
+      <option key={category} value={category}>{category}</option>
+    )
+    }
+  })
+
   return (
     <form onSubmit={onTaskFormSubmit} className="new-task-form">
       <label>
@@ -8,7 +21,7 @@ function NewTaskForm({ onTaskFormSubmit, categories, formData }) {
       <label>
         Category
         <select name="category">
-          {/* render <option> elements for each category here */}
+          {options}
         </select>
       </label>
       <input type="submit" value="Add task" />
