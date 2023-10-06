@@ -16,12 +16,24 @@ function App() {
     category: "",
   })
 
+  const onTaskFormSubmit = () => {
+
+  }
+
+  const onButtonClick = () => {
+
+  }
+
+  const onTaskDelete = () => {
+
+  }
+
   return (
     <div className="App">
       <h2>My tasks</h2>
-      <CategoryFilter currentFilter={currentFilter} categories={CATEGORIES} />
-      <NewTaskForm formData={formData} />
-      <TaskList categories={CATEGORIES} tasksToDisplay={tasksToDisplay} />
+      <CategoryFilter onButtonClick={onButtonClick} currentFilter={currentFilter} categories={CATEGORIES} />
+      <NewTaskForm onTaskFormSubmit={onTaskFormSubmit} formData={formData} />
+      <TaskList onTaskDelete={onTaskDelete} tasksToDisplay={tasksToDisplay} />
     </div>
   );
 }

@@ -1,6 +1,7 @@
-const Button = ({ category }) => {
+const Button = ({ cat }) => {
+  
   return (
-    <div>Button</div>
+    <button>{cat}</button>
   )
 }
 

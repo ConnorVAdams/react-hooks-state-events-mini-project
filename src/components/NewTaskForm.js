@@ -1,5 +1,3 @@
-import React from "react";
-
 function NewTaskForm({ categories, formData }) {
   return (
     <form className="new-task-form">
