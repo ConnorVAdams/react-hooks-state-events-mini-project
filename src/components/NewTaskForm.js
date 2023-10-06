@@ -5,7 +5,6 @@ function NewTaskForm({ onTaskFormSubmit, categories }) {
     text: "",
     category: "Code",
   })
-  console.log(formData)
 
   const onFormChange = (e) => {
     const newData = {...formData,

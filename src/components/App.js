@@ -14,12 +14,11 @@ function App() {
 
   const onTaskFormSubmit = (newTask) => {
     const updatedTasks = [...tasksToDisplay, newTask]
-    console.log(updatedTasks)
     setTasksToDisplay(updatedTasks)
   }
 
-  const onButtonClick = () => {
-
+  const onButtonClick = (e) => {
+    setFilter(e.target.textContent)
   }
 
   const onTaskDelete = (e) => {
@@ -28,12 +27,20 @@ function App() {
     setTasksToDisplay(updatedTasks)
   }
 
+  const filteredTasks = tasksToDisplay.filter(task => {
+    if (currentFilter === "All") {
+      return true
+    } else {
+      return task.category === currentFilter
+    }
+  })
+
   return (
     <div className="App">
       <h2>My tasks</h2>
       <CategoryFilter onButtonClick={onButtonClick} currentFilter={currentFilter} categories={CATEGORIES} />
       <NewTaskForm onTaskFormSubmit={onTaskFormSubmit} categories={CATEGORIES}/>
-      <TaskList onTaskDelete={onTaskDelete} tasks={tasksToDisplay} />
+      <TaskList onTaskDelete={onTaskDelete} tasks={filteredTasks} />
     </div>
   );
 }
