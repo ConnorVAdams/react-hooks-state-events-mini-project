@@ -1,9 +1,29 @@
-function NewTaskForm({ onTaskFormSubmit, categories, formData }) {
-  
-  const onFormChange = () => {
+import { useState } from "react";
 
+function NewTaskForm({ onTaskFormSubmit, categories }) {
+  const [formData, setFormData] = useState({
+    text: "",
+    category: "Code",
+  })
+  console.log(formData)
+
+  const onFormChange = (e) => {
+    const newData = {...formData,
+      [e.target.name]: e.target.value  
+    }
+    setFormData(newData)
   }
   
+  const onFormSubmit = (e) => {
+    e.preventDefault()
+    const newTask = {
+      text: formData.text,
+      category: formData.category,
+    }
+    onTaskFormSubmit(newTask)
+
+  }
+
   const options = categories.map(category => {
     if (category !== "All") {
     return (
@@ -13,14 +33,14 @@ function NewTaskForm({ onTaskFormSubmit, categories, formData }) {
   })
 
   return (
-    <form onSubmit={onTaskFormSubmit} className="new-task-form">
+    <form onSubmit={onFormSubmit} className="new-task-form">
       <label>
         Details
-        <input type="text" name="text" />
+        <input onChange={onFormChange} type="text" name="text" />
       </label>
       <label>
         Category
-        <select name="category">
+        <select onChange={onFormChange}  name="category" >
           {options}
         </select>
       </label>

@@ -11,13 +11,11 @@ console.log({ CATEGORIES, TASKS });
 function App() {
   const [tasksToDisplay, setTasksToDisplay] = useState( TASKS );
   const [currentFilter, setFilter] = useState("All");
-  const [formData, setFormData] = useState({
-    text: "",
-    category: "",
-  })
 
-  const onTaskFormSubmit = () => {
-
+  const onTaskFormSubmit = (newTask) => {
+    const updatedTasks = [...tasksToDisplay, newTask]
+    console.log(updatedTasks)
+    setTasksToDisplay(updatedTasks)
   }
 
   const onButtonClick = () => {
@@ -34,7 +32,7 @@ function App() {
     <div className="App">
       <h2>My tasks</h2>
       <CategoryFilter onButtonClick={onButtonClick} currentFilter={currentFilter} categories={CATEGORIES} />
-      <NewTaskForm onTaskFormSubmit={onTaskFormSubmit} formData={formData} categories={CATEGORIES}/>
+      <NewTaskForm onTaskFormSubmit={onTaskFormSubmit} categories={CATEGORIES}/>
       <TaskList onTaskDelete={onTaskDelete} tasks={tasksToDisplay} />
     </div>
   );
