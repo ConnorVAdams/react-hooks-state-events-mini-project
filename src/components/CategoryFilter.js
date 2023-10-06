@@ -1,8 +1,9 @@
 import Button from "./Button"
 
 function CategoryFilter({ onButtonClick, currentFilter, categories }) {
-
+  
   const catButtons = categories.map(cat => {
+    // debugger
     return <Button key={cat} cat={cat} currentFilter={currentFilter} />
   })
   

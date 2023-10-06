@@ -1,7 +1,9 @@
-const Button = ({ cat }) => {
+const Button = ({ cat, currentFilter }) => {
   
+  const className = (cat === currentFilter) ? 'selected' : ''
+
   return (
-    <button>{cat}</button>
+    <button className={className}>{cat}</button>
   )
 }
 
