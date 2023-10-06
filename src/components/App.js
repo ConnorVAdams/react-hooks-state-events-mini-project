@@ -24,8 +24,10 @@ function App() {
 
   }
 
-  const onTaskDelete = () => {
-
+  const onTaskDelete = (e) => {
+    const updatedTasks = [...tasksToDisplay]
+    updatedTasks.splice(e.target.parentNode.id, 1)
+    setTasksToDisplay(updatedTasks)
   }
 
   return (
@@ -33,7 +35,7 @@ function App() {
       <h2>My tasks</h2>
       <CategoryFilter onButtonClick={onButtonClick} currentFilter={currentFilter} categories={CATEGORIES} />
       <NewTaskForm onTaskFormSubmit={onTaskFormSubmit} formData={formData} />
-      <TaskList onTaskDelete={onTaskDelete} tasksToDisplay={tasksToDisplay} />
+      <TaskList onTaskDelete={onTaskDelete} tasks={tasksToDisplay} />
     </div>
   );
 }

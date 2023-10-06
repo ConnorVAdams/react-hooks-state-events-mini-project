@@ -1,6 +1,6 @@
-function Task({ task }) {
+function Task({ index, task }) {
   return (
-    <div className="task">
+    <div id={index} className="task">
       <div className="label">{task.category}</div>
       <div className="text">{task.text}</div>
       <button className="delete">X</button>

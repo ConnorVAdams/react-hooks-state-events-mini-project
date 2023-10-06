@@ -1,15 +1,13 @@
 import Task from './Task.js'
 
-function TaskList({ tasksToDisplay }) {
+function TaskList({ onTaskDelete, tasks }) {
 
-  console.log(tasksToDisplay)
-
-  const taskList = tasksToDisplay.map((task, index) => {
-    return <Task key={index} task={task} />
+  const taskList = tasks.map((task, index) => {
+    return <Task key={index} index={index} task={task} /> 
   })
 
   return (
-    <div className="tasks">
+    <div onClick={onTaskDelete}className="tasks">
       {taskList}
     </div>
   );

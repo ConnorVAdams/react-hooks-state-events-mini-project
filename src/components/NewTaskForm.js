@@ -1,6 +1,6 @@
-function NewTaskForm({ categories, formData }) {
+function NewTaskForm({ onTaskFormSubmit, categories, formData }) {
   return (
-    <form className="new-task-form">
+    <form onSubmit={onTaskFormSubmit} className="new-task-form">
       <label>
         Details
         <input type="text" name="text" />
